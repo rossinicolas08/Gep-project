@@ -4,8 +4,7 @@ Criteri
 2.Gratificare e convincere l'utente a smettere
 3.Ricordare l'utente dei propri servizi
 
-
-## Requisiti funzionali
+ Requisiti funzionali
 
 - Registrazione di un nuovo account
 - Login e logout
