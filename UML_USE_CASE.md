@@ -1,0 +1,7 @@
+![Account and data use case diagram](UML_USE_CASE/01-account.svg)
+![Habit and goal setup use case diagram](UML_USE_CASE/02-habit-and-goal.svg)
+![Tracking use case diagram](UML_USE_CASE/03-tracking.svg)
+![Progress and motivation use case diagram](UML_USE_CASE/04-progress-and-motivation.svg)
+![Relapse, emergency and reminders use case diagram](UML_USE_CASE/05-relapse-emergency-reminders.svg)
+![Support and safety use case diagram](UML_USE_CASE/06-support-and-safety.svg)
+![Community and moderation use case diagram](UML_USE_CASE/07-community-and-moderation.svg)
