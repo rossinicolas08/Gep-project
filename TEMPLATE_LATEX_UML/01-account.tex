@@ -1,0 +1,35 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Attori
+\umlactor[x=0,y=-9]{User}
+
+% Sistema: Account
+\begin{umlsystem}[x=7,y=0,fill=white]{Quitty -- Account}
+  \umlusecase[name=register,x=7,y=0,width=4cm]{Register}
+  \umlusecase[name=login,x=7,y=-2.5,width=4cm]{Login}
+  \umlusecase[name=logout,x=7,y=-5,width=4cm]{Logout}
+  \umlusecase[name=profile,x=7,y=-7.5,width=4cm]{Manage profile}
+  \umlusecase[name=privacy,x=7,y=-10,width=4cm]{Manage privacy settings}
+  \umlusecase[name=export,x=7,y=-12.5,width=4cm]{Export data}
+  \umlusecase[name=delete,x=7,y=-15,width=4cm]{Delete account}
+  \umlusecase[name=recover,x=16,y=-2.5,width=4cm]{Recover password}
+\end{umlsystem}
+
+% Relazioni
+\umlassoc{User}{register}
+\umlassoc{User}{login}
+\umlassoc{User}{logout}
+\umlassoc{User}{profile}
+\umlassoc{User}{privacy}
+\umlassoc{User}{export}
+\umlassoc{User}{delete}
+\umlextend{recover}{login}
+
+\end{tikzpicture}
+\end{document}

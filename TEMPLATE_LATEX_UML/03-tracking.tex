@@ -1,0 +1,33 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Attori
+\umlactor[x=0,y=-5]{User}
+
+% Sistema: Tracking
+\begin{umlsystem}[x=7,y=0,fill=white]{Quitty -- Tracking}
+  \umlusecase[name=log,x=7,y=-3,width=4cm]{Log daily activity}
+  \umlusecase[name=hist,x=7,y=-11,width=4cm]{View history}
+  \umlusecase[name=qty,x=16,y=0,width=4cm]{Record quantity}
+  \umlusecase[name=trig,x=16,y=-2.5,width=4cm]{Record trigger}
+  \umlusecase[name=emo,x=16,y=-5,width=4cm]{Record emotional state}
+  \umlusecase[name=crav,x=16,y=-7.5,width=4cm]{Record craving}
+  \umlusecase[name=note,x=16,y=-10,width=4cm]{Write diary note}
+\end{umlsystem}
+
+% Relazioni
+\umlassoc{User}{log}
+\umlassoc{User}{hist}
+\umlinclude{log}{qty}
+\umlextend{trig}{log}
+\umlextend{emo}{log}
+\umlextend{crav}{log}
+\umlextend{note}{log}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Attori
+\umlactor[x=0,y=-5]{User}
+
+% Sistema: Supporto e sicurezza
+\begin{umlsystem}[x=7,y=0,fill=white]{Quitty -- Supporto e sicurezza}
+  \umlusecase[name=info,x=7,y=0,width=4cm]{Read informative content}
+  \umlusecase[name=res,x=7,y=-2.5,width=4cm]{Find support resources}
+  \umlusecase[name=prof,x=7,y=-5,width=4cm]{Find professionals and services}
+  \umlusecase[name=safe,x=7,y=-7.5,width=4cm]{Read safety notice}
+  \umlusecase[name=risk,x=7,y=-10,width=4cm]{View personalized risk information}
+\end{umlsystem}
+
+% Relazioni
+\umlassoc{User}{info}
+\umlassoc{User}{res}
+\umlassoc{User}{prof}
+\umlassoc{User}{safe}
+\umlassoc{User}{risk}
+
+\end{tikzpicture}
+\end{document}

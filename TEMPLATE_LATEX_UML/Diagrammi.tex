@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\usepackage[landscape,margin=1.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\usepackage[subpreambles=false]{standalone}
+\pagestyle{empty}
+
+\begin{document}
+\centering
+\newcommand{\diagramma}[2]{%
+  \section*{#1}\vfill
+  \includestandalone[width=\textwidth,height=0.78\textheight,keepaspectratio]{#2}\vfill\clearpage}
+
+\diagramma{Account}{01-account}
+\diagramma{Habit e goal}{02-habit-and-goal}
+\diagramma{Tracking}{03-tracking}
+\diagramma{Progressi e motivazione}{04-progress-and-motivation}
+\diagramma{Ricadute, emergenza e promemoria}{05-relapse-emergency-reminders}
+\diagramma{Supporto e sicurezza}{06-support-and-safety}
+\diagramma{Community e moderazione}{07-community-and-moderation}
+\end{document}

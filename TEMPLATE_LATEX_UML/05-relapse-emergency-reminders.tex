@@ -1,0 +1,44 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Attori
+\umlactor[x=0,y=-7]{User}
+\umlactor[x=0,y=-18]{Notification System}
+
+% Sistema: Ricadute - emergenza e promemoria
+\begin{umlsystem}[x=7,y=0,fill=white]{Quitty -- Ricadute - emergenza e promemoria}
+  \umlusecase[name=relapse,x=7,y=0,width=4cm]{Log relapse}
+  \umlusecase[name=emerg,x=7,y=-9,width=4cm]{Activate emergency mode}
+  \umlusecase[name=notset,x=7,y=-14,width=4cm]{Manage notification settings}
+  \umlusecase[name=remind,x=7,y=-17,width=4cm]{Send reminders}
+  \umlusecase[name=goaln,x=7,y=-20,width=4cm]{Send goal notifications}
+  \umlusecase[name=cause,x=16,y=2,width=4cm]{Analyze relapse cause}
+  \umlusecase[name=supp,x=16,y=-0.5,width=4cm]{Receive support message}
+  \umlusecase[name=resume,x=16,y=-3,width=4cm]{Resume path}
+  \umlusecase[name=adjust,x=25,y=-3,width=4cm]{Adjust plan}
+  \umlusecase[name=guided,x=16,y=-7,width=4cm]{Guided exercises}
+  \umlusecase[name=contacts,x=16,y=-9.5,width=4cm]{View emergency contacts}
+  \umlusecase[name=anti,x=16,y=-12,width=4cm]{Anti-craving strategies}
+\end{umlsystem}
+
+% Relazioni
+\umlassoc{User}{relapse}
+\umlassoc{User}{emerg}
+\umlassoc{User}{notset}
+\umlassoc{Notification System}{remind}
+\umlassoc{Notification System}{goaln}
+\umlextend{cause}{relapse}
+\umlextend{supp}{relapse}
+\umlinclude{relapse}{resume}
+\umlextend{adjust}{resume}
+\umlinclude{emerg}{guided}
+\umlinclude{emerg}{contacts}
+\umlextend{anti}{emerg}
+
+\end{tikzpicture}
+\end{document}

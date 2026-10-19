@@ -1,0 +1,35 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Attori
+\umlactor[x=0,y=-6]{User}
+
+% Sistema: Habit e goal
+\begin{umlsystem}[x=7,y=0,fill=white]{Quitty -- Habit e goal}
+  \umlusecase[name=habit,x=7,y=0,width=4cm]{Choose habit}
+  \umlusecase[name=goal,x=7,y=-4,width=4cm]{Set personal goal}
+  \umlusecase[name=edit,x=7,y=-12,width=4cm]{Edit goal}
+  \umlusecase[name=multi,x=16,y=0,width=4cm]{Manage multiple habits}
+  \umlusecase[name=red,x=16,y=-2,width=4cm]{Reduction goal}
+  \umlusecase[name=ces,x=16,y=-4.5,width=4cm]{Cessation goal}
+  \umlusecase[name=date,x=16,y=-7,width=4cm]{Choose start date}
+  \umlusecase[name=plan,x=16,y=-9.5,width=4cm]{Get personalized plan}
+\end{umlsystem}
+
+% Relazioni
+\umlassoc{User}{habit}
+\umlassoc{User}{goal}
+\umlassoc{User}{edit}
+\umlextend{multi}{habit}
+\umlextend{red}{goal}
+\umlextend{ces}{goal}
+\umlinclude{goal}{date}
+\umlinclude{goal}{plan}
+
+\end{tikzpicture}
+\end{document}
