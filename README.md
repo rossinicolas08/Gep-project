@@ -35,13 +35,3 @@ Persone con **dipendenze da sostanze** o **abitudini indesiderate**. L'app è ap
 
 ### Competitor
 **Healthify**
-
-```mermaid
-flowchart LR
-  C[WinForms client] -- "TCP / UTF-8 JSON line" --> S[Python asyncio server]
-  S -- SQL --> P[(PostgreSQL)]
-  S -- "forums/<uuid>/messages" --> M[ Mosquitto MQTT ]
-  M -- live event --> S
-  S -- metrics --> I[(InfluxDB)]
-  G[Grafana] -- queries --> I
-```
